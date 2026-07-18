@@ -436,12 +436,8 @@ function heroIn(){
 }
 
 // ═══ CURSOR ═══
-const cRing=document.querySelector('.cursor-ring')||document.body.appendChild(Object.assign(document.createElement('div'),{className:'cursor-ring'}));
-const cDot=document.querySelector('.cursor-dot')||document.body.appendChild(Object.assign(document.createElement('div'),{className:'cursor-dot'}));
-// Actually create them properly
-document.body.insertAdjacentHTML('beforeend','<div class="cursor-ring"></div><div class="cursor-dot"></div>');
-const ring=document.querySelector('.cursor-ring');
-const dot=document.querySelector('.cursor-dot');
+const ring=document.createElement('div');ring.className='cursor-ring';document.body.appendChild(ring);
+const dot=document.createElement('div');dot.className='cursor-dot';document.body.appendChild(dot);
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
 const inter='a,button,.lab-item,.prod-card,.work-link,.ndot,.ham,.writing-item';
@@ -755,7 +751,7 @@ window.addEventListener('resize',()=>{
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=280;c.height=H}rs();window.addEventListener('resize',rs);
   let x=.1,y=0,z=0;const sigma=10,rho=28,beta=8/3;let trail=[];
   function draw(){
-    for(let i=0;i<10;i++){const dx=sigma*(y-x),dy=x*(rho-z)-dy||0,dz=x*y-beta*z;x+=dx*.005;y+=dy*.005;z+=dz*.005;trail.push({x,y,z});if(trail.length>1800)trail.shift()}
+    for(let i=0;i<10;i++){const dx=sigma*(y-x),dy=x*(rho-z)-y,dz=x*y-beta*z;x+=dx*.005;y+=dy*.005;z+=dz*.005;trail.push({x,y,z});if(trail.length>1800)trail.shift()}
     ctx.fillStyle='rgba(0,0,0,.05)';ctx.fillRect(0,0,W,H);
     const cx=W/2,cy=H/2,sc=Math.min(W,H)/80;
     for(let i=1;i<trail.length;i++){
