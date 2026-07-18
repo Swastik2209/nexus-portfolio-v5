@@ -587,8 +587,8 @@ window.addEventListener('resize',()=>{
 // ═══════════════════════════════════════════════════════════
 
 // --- DOUBLE PENDULUM (RK4 + Hamiltonian, from skeeto/double-pendulum) ---
-{
-  const c=document.getElementById('cvPend');if(!c)return;
+(function(){
+  const c=document.getElementById('cvPend');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=280;c.height=H}rs();window.addEventListener('resize',rs);
 
@@ -656,11 +656,11 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(drawPend);
   }
   drawPend();
-}
+})();
 
 // --- BLACK-SCHOLES (A&S normCDF) ---
-{
-  const c=document.getElementById('cvBS');if(!c)return;
+(function(){
+  const c=document.getElementById('cvBS');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=280;c.height=H}rs();window.addEventListener('resize',rs);
 
@@ -718,11 +718,11 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(drawBS);
   }
   drawBS();
-}
+})();
 
 // --- WAVE INTERFERENCE ---
-{
-  const c=document.getElementById('cvWave');if(!c)return;
+(function(){
+  const c=document.getElementById('cvWave');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=200;c.height=H}rs();window.addEventListener('resize',rs);
   let mx=.5,my=.5;
@@ -742,11 +742,11 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(draw);
   }
   draw();
-}
+})();
 
 // --- LORENZ ATTRACTOR ---
-{
-  const c=document.getElementById('cvLorenz');if(!c)return;
+(function(){
+  const c=document.getElementById('cvLorenz');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=280;c.height=H}rs();window.addEventListener('resize',rs);
   let x=.1,y=0,z=0;const sigma=10,rho=28,beta=8/3;let trail=[];
@@ -766,11 +766,11 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(draw);
   }
   draw();
-}
+})();
 
 // --- BROWNIAN MOTION (GBM) ---
-{
-  const c=document.getElementById('cvBrown');if(!c)return;
+(function(){
+  const c=document.getElementById('cvBrown');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=220;c.height=H}rs();window.addEventListener('resize',rs);
   let path=[],S=100,mu=.08,sig=.4,dt=.01;
@@ -790,11 +790,11 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(draw);
   }
   draw();
-}
+})();
 
 // --- ORBITAL MECHANICS (Leapfrog + softening) ---
-{
-  const c=document.getElementById('cvOrbit');if(!c)return;
+(function(){
+  const c=document.getElementById('cvOrbit');if(!c) return;
   const ctx=c.getContext('2d');
   let W,H;function rs(){W=c.parentElement.offsetWidth;c.width=W;H=380;c.height=H}rs();window.addEventListener('resize',rs);
 
@@ -861,7 +861,7 @@ window.addEventListener('resize',()=>{
     requestAnimationFrame(drawOrbit);
   }
   drawOrbit();
-}
+})();
 
 // ═══ AGENT TERMINAL ANIMATION ═══
 {
